@@ -1,6 +1,7 @@
 {
     "name": "aymanalhattami/filament-context-menu",
     "description": "context menu (right click menu) for filament",
+    "version" : "dev-main",
     "keywords": [
         "ayman alhattami",
         "laravel",
@@ -25,20 +26,21 @@
     ],
     "require": {
         "php": "^8.2",
-        "filament/filament": "^3.0",
+        "filament/filament": "^4.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^8.0",
-        "larastan/larastan": "^2.0",
-        "orchestra/testbench": "^9.0",
-        "pestphp/pest": "^3.0",
+        "filament/upgrade": "^4.0",
+        "larastan/larastan": "^3.7",
+        "laravel/pint": "^1.25",
+        "nunomaduro/collision": "^8.8",
+        "orchestra/testbench": "^9.15",
+        "pestphp/pest": "^3.5",
         "pestphp/pest-plugin-arch": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0",
-        "phpstan/extension-installer": "^1.0",
-        "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0"
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0"
     },
     "autoload": {
         "psr-4": {

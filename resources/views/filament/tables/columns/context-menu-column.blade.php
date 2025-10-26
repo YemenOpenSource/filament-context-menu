@@ -24,7 +24,7 @@
                         @if($action instanceof Filament\Tables\Actions\Action and !$action instanceof \AymanAlhattami\FilamentContextMenu\ContextMenuDivider)
                             @if($action->isVisible())
                                 <div @class([
-                            'context-menu-filament-action flex gap-x-4 select-none group justify-between rounded px-2 py-1.5 hover:bg-neutral-100 outline-none pl-8 data-[disabled]:opacity-50 data-[disabled]:pointer-events-none dark:hover:bg-white/5',
+                            'context-menu-filament-action flex gap-x-4 select-none group justify-between rounded-sm px-2 py-1.5 hover:bg-neutral-100 outline-hidden pl-8 data-disabled:opacity-50 data-disabled:pointer-events-none dark:hover:bg-white/5',
                             'mt-1' => !$loop->first
                         ])>
                                     {{ $action }}

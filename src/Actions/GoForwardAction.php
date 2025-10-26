@@ -19,10 +19,14 @@ class GoForwardAction extends Action
             ->translateLabel()
             ->color('gray')
             ->icon('heroicon-o-arrow-right')
-            ->link()
-            ->extraAttributes([
-                'x-data' => '',
-                'x-on:click' => 'window.history.forward()',
+            ->button()
+            ->action(function () {
+                $this->dispatch('go-forward');
+            });
+
+            $this->extraAttributes([
+                'x-data' => '{}',
+                'x-on:go-forward.window' => 'window.history.forward()',
             ]);
     }
 }

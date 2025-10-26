@@ -19,10 +19,12 @@ class RefreshAction extends Action
             ->translateLabel()
             ->color('gray')
             ->icon('heroicon-o-arrow-path')
-            ->link()
-            ->extraAttributes([
-                'x-data' => '',
-                'x-on:click' => 'window.location.reload()',
-            ]);
+            ->Button()
+            ->action(function () {
+                $this->dispatch('refresh-page');
+            })->extraAttributes([
+            'x-data' => '',
+            'x-on:refresh-page.window' => 'window.location.reload()',
+        ]);
     }
 }
