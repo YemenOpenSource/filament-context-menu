@@ -22,16 +22,6 @@ class GoBackAction extends Action
     {
         parent::setUp();
 
-        $this->label('Go back')
-            ->translateLabel()
-            ->color('gray')
-            ->icon(Heroicon::ArrowLeft)
-            ->Button()
-            ->action(function () {
-                $this->dispatch('go-back');
-            })->extraAttributes([
-                'x-data' => '{}',
-                'x-on:go-back.window' => 'window.history.back()',
-            ]);
+        $this->view('filament-context-menu::components.actions.go-back');
     }
 }
