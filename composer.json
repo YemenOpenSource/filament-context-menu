@@ -1,7 +1,6 @@
 {
     "name": "aymanalhattami/filament-context-menu",
     "description": "context menu (right click menu) for filament",
-    "version" : "dev-main",
     "keywords": [
         "ayman alhattami",
         "laravel",
