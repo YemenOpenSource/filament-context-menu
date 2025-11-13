@@ -92,6 +92,7 @@ You can use ```Filament\Actions\CreateAction```, visit [filament create action](
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\CreateAction;
 
 class ListUsers extends ListRecords
 {
@@ -102,7 +103,7 @@ class ListUsers extends ListRecords
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\CreateAction::make()
+            CreateAction::make()
                 ->model(App\Models\User::class)
                  ->form([
                     TextInput::make('name')
@@ -122,6 +123,7 @@ You can use ```Filament\Actions\EditAction```, visit [filament edit action](http
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Actions\EditAction;
 
 class ViewUser extends ViewRecord
 {
@@ -132,7 +134,7 @@ class ViewUser extends ViewRecord
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\EditAction::make()
+            EditAction::make()
                 ->record($this->user)
                 ->form([
                     TextInput::make('name')
@@ -152,6 +154,7 @@ You can use ```Filament\Actions\ViewAction```, visit [filament view action](http
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Actions\ViewAction;
 
 class EditUser extends EditRecord
 {
@@ -162,7 +165,7 @@ class EditUser extends EditRecord
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\ViewAction::make()
+            ViewAction::make()
                 ->record($this->user)
                  ->form([
                     TextInput::make('name')
@@ -183,6 +186,7 @@ You can use  ```Filament\Actions\DeleteAction```, visit [filament delete action]
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Actions\DeleteAction;
 
 class ViewUser extends ViewRecord
 {
@@ -193,7 +197,7 @@ class ViewUser extends ViewRecord
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\DeleteAction::make()
+            DeleteAction::make()
                 ->record($this->user)
         ];
     }
@@ -208,6 +212,7 @@ You can use  ```Filament\Actions\ReplicateAction```, visit [filament replicate a
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Actions\ReplicateAction;
 
 class ViewUser extends ViewRecord
 {
@@ -218,7 +223,7 @@ class ViewUser extends ViewRecord
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\ReplicateAction::make()
+            ReplicateAction::make()
                 ->record($this->user)
         ];
     }
@@ -233,6 +238,7 @@ You can use ```Filament\Actions\ForceDeleteAction```, visit [filament force dele
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Actions\ForceDeleteAction;
 
 class ViewUser extends ViewRecord
 {
@@ -243,7 +249,7 @@ class ViewUser extends ViewRecord
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\ForceDeleteAction::make()
+            ForceDeleteAction::make()
                 ->record($this->user)
         ];
     }
@@ -258,6 +264,7 @@ You can use ```Filament\Actions\RestoreAction```, visit [filament restore action
 ```php
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\RestoreAction;
 
 class ListUsers extends ListRecords
 {
@@ -268,7 +275,7 @@ class ListUsers extends ListRecords
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\RestoreAction::make()
+            RestoreAction::make()
                 ->record($this->user)
         ];
     }
@@ -284,6 +291,7 @@ You can use ```Filament\Actions\ImportAction```, visit [filament import action](
 use App\Filament\Imports\UserImporter;
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\ImportAction;
 
 class ListUsers extends ListRecords
 {
@@ -294,7 +302,7 @@ class ListUsers extends ListRecords
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\ImportAction::make()
+            ImportAction::make()
                 ->importer(UserImporter::class)
         ];
     }
@@ -310,6 +318,7 @@ You can use ```Filament\Actions\ExportAction```, visit [filament export action](
 use App\Filament\Exports\UserExporter;
 use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\ExportAction;
 
 class ListUsers extends ListRecords
 {
@@ -320,7 +329,7 @@ class ListUsers extends ListRecords
     public static function getContextMenuActions(): array
     {
         return [
-            \Filament\Actions\ExportAction::make()
+            ExportAction::make()
                 ->exporter(UserExporter::class)
         ];
     }
@@ -399,7 +408,8 @@ Method 1: To globally enable or disable the context menu, you need to define an 
 Method 2: You can also define a static variable called ```public static bool $contextMenuEnabled``` in the page and set the value to ```true``` or ```false```;
 
 ```php
-use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;use Filament\Resources\Pages\ViewRecord;
+use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
+use Filament\Resources\Pages\ViewRecord;
 
 class ViewUser extends ViewRecord
 {
@@ -422,7 +432,8 @@ class ViewUser extends ViewRecord
 Method 3: define a static method called ```isContextMenuEnabled``` in the page
 
 ```php
-use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;use Filament\Resources\Pages\ViewRecord;
+use AymanAlhattami\FilamentContextMenu\Traits\PageHasContextMenu;
+use Filament\Resources\Pages\ViewRecord;
 
 class ViewUser extends ViewRecord
 {
@@ -459,7 +470,7 @@ To add a context menu to the table cell, you can use the following columns:
 
 ```php
 use Filament\Tables\Table;
-use Filament\Tables\Actions\Action;
+use Filament\Actions\Action;
 use AymanAlhattami\FilamentContextMenu\Columns\ContextMenuTextColumn;
 use App\Filament\Resources\UserResource\Pages\{ ViewUser, EditUser };
 
