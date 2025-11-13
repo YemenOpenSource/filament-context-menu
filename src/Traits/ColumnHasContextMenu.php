@@ -9,8 +9,6 @@ use Filament\Support\Components\Contracts\HasEmbeddedView;
 
 trait ColumnHasContextMenu
 {
-//    protected string $view = 'filament-context-menu::filament.tables.columns.context-menu-column';
-
     protected Closure | bool $contextMenuEnabled = true;
 
     public const GROUPED_VIEW = 'filament::components.dropdown.list.item';
@@ -31,13 +29,6 @@ trait ColumnHasContextMenu
             fn ($action) => $action instanceof Action || $action instanceof ActionGroup,
         );
 
-//        dd(array_map(
-//            fn (Action|ActionGroup $action) => match (true) {
-//                $action instanceof Action => $action->defaultView(ActionGroup::GROUPED_VIEW),
-//                $action instanceof ActionGroup => $action->defaultTriggerView(ActionGroup::GROUPED_VIEW),
-//            },
-//            $actions,
-//        ));
         return array_map(
             fn (Action|ActionGroup $action) => match (true) {
                 $action instanceof Action => $action->defaultView(ActionGroup::GROUPED_VIEW),
