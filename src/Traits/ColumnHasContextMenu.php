@@ -3,14 +3,17 @@
 namespace AymanAlhattami\FilamentContextMenu\Traits;
 
 use Closure;
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
+use Filament\Support\Components\Contracts\HasEmbeddedView;
 
 trait ColumnHasContextMenu
 {
-    protected string $wrapperView = 'filament-context-menu::filament.tables.columns.context-menu-column';
-
-    protected ?string $mainView = '';
+//    protected string $view = 'filament-context-menu::filament.tables.columns.context-menu-column';
 
     protected Closure | bool $contextMenuEnabled = true;
+
+    public const GROUPED_VIEW = 'filament::components.dropdown.list.item';
 
     protected Closure | array $contextMenuActions = [];
 
@@ -18,13 +21,30 @@ trait ColumnHasContextMenu
     {
         parent::setUp();
 
-        $this->mainView($this->getView())
-            ->view($this->getWrapperView());
+        $this->view('filament-context-menu::filament.tables.columns.context-menu-column');
     }
 
     public function getContextMenuActions(): array
     {
-        return $this->evaluate($this->contextMenuActions);
+        $actions = array_filter(
+            $this->evaluate($this->contextMenuActions),
+            fn ($action) => $action instanceof Action || $action instanceof ActionGroup,
+        );
+
+//        dd(array_map(
+//            fn (Action|ActionGroup $action) => match (true) {
+//                $action instanceof Action => $action->defaultView(ActionGroup::GROUPED_VIEW),
+//                $action instanceof ActionGroup => $action->defaultTriggerView(ActionGroup::GROUPED_VIEW),
+//            },
+//            $actions,
+//        ));
+        return array_map(
+            fn (Action|ActionGroup $action) => match (true) {
+                $action instanceof Action => $action->defaultView(ActionGroup::GROUPED_VIEW),
+                $action instanceof ActionGroup => $action->defaultTriggerView(ActionGroup::GROUPED_VIEW),
+            },
+            $actions,
+        );
     }
 
     public function contextMenuActions(array | Closure $contextMenuActions): static
@@ -32,6 +52,20 @@ trait ColumnHasContextMenu
         $this->contextMenuActions = $contextMenuActions;
 
         return $this;
+    }
+
+    public function getContextMenuActionGroup(): ?ActionGroup
+    {
+        $actions = array_filter($this->getContextMenuActions(), fn($action) => $action instanceof Action);
+
+        if (empty($actions)) {
+            return null;
+        }
+
+        return ActionGroup::make($actions)
+            ->icon('heroicon-o-ellipsis-vertical')
+            ->button()
+            ->color('gray');
     }
 
     public function enableContextMenu(bool | Closure $contextMenuEnabled = true): static
@@ -43,34 +77,8 @@ trait ColumnHasContextMenu
 
     public function isContextMenuEnabled(): bool
     {
-        $isContextMenuEnabled = $this->evaluate($this->contextMenuEnabled);
-
-        return $isContextMenuEnabled and
-            config('filament-context-menu.enabled', true) and
-            count($this->getContextMenuActions());
-    }
-
-    public function wrapperView($view): static
-    {
-        $this->wrapperView = $view;
-
-        return $this;
-    }
-
-    public function getWrapperView(): string
-    {
-        return $this->wrapperView;
-    }
-
-    public function mainView($view): static
-    {
-        $this->mainView = $view;
-
-        return $this;
-    }
-
-    public function getMainView(): string
-    {
-        return $this->mainView;
+        return $this->evaluate($this->contextMenuEnabled)
+            && config('filament-context-menu.enabled', true)
+            && count($this->getContextMenuActions());
     }
 }
