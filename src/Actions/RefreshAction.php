@@ -17,6 +17,8 @@ class RefreshAction extends Action
 
         $this->label('Refresh');
 
+        $this->icon('heroicon-o-arrow-path');
+
         $this->view('filament-context-menu::components.actions.refresh-button');
     }
 }

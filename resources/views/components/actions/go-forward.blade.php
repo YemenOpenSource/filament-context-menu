@@ -1,5 +1,5 @@
 <button type="button" x-data x-on:click="window.history.forward()"
         class="fi-button fi-color-gray flex items-center gap-2 justify-between">
-    <x-heroicon-o-arrow-right style="width: 20px; height: 20px; margin-inline: 10px;" />
+    <x-filament::icon :icon="$getIcon()" class="w-5 h-5" />
     {{ $getLabel() ?? 'Go Forward' }}
 </button>

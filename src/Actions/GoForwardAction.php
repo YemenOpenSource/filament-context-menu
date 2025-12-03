@@ -17,6 +17,8 @@ class GoForwardAction extends Action
 
         $this->label('Go Forward');
 
+        $this->icon('heroicon-o-arrow-right');
+
         $this->view('filament-context-menu::components.actions.go-forward');
     }
 }
