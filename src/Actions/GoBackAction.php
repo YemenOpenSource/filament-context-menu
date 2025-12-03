@@ -22,6 +22,8 @@ class GoBackAction extends Action
     {
         parent::setUp();
 
+        $this->label('Go Back');
+
         $this->view('filament-context-menu::components.actions.go-back');
     }
 }

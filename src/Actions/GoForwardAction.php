@@ -15,6 +15,8 @@ class GoForwardAction extends Action
     {
         parent::setUp();
 
+        $this->label('Go Forward');
+
         $this->view('filament-context-menu::components.actions.go-forward');
     }
 }

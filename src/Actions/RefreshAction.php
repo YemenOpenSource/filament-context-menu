@@ -15,6 +15,8 @@ class RefreshAction extends Action
     {
         parent::setUp();
 
+        $this->label('Refresh');
+
         $this->view('filament-context-menu::components.actions.refresh-button');
     }
 }
