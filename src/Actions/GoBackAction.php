@@ -6,23 +6,25 @@ use Filament\Actions\Action;
 
 class GoBackAction extends Action
 {
+    /**
+     * @return string|null
+     */
     public static function getDefaultName(): ?string
     {
         return 'go back';
     }
 
+    /**
+     * @return void
+     */
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->label('Go back')
-            ->translateLabel()
-            ->color('gray')
-            ->icon('heroicon-o-arrow-left')
-            ->link()
-            ->extraAttributes([
-                'x-data' => '',
-                'x-on:click' => 'window.history.back()',
-            ]);
+        $this->label('Go Back');
+
+        $this->icon('heroicon-o-arrow-left');
+
+        $this->view('filament-context-menu::components.actions.go-back');
     }
 }

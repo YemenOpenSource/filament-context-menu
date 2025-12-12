@@ -15,14 +15,10 @@ class RefreshAction extends Action
     {
         parent::setUp();
 
-        $this->label('Refresh')
-            ->translateLabel()
-            ->color('gray')
-            ->icon('heroicon-o-arrow-path')
-            ->link()
-            ->extraAttributes([
-                'x-data' => '',
-                'x-on:click' => 'window.location.reload()',
-            ]);
+        $this->label('Refresh');
+
+        $this->icon('heroicon-o-arrow-path');
+
+        $this->view('filament-context-menu::components.actions.refresh-button');
     }
 }

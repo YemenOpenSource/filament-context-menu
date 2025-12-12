@@ -1,8 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@source "./resources/views";
+@source "../../../../app/Filament";
+@source "../../../../resources/views/filament";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@reference "tailwindcss/utilities";
+
+/* ✅ Add your theme extensions here (was theme.extend in JS) */
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 .context-menu-filament-action button,
 .context-menu-filament-action a {
-    @apply w-full justify-start
+    @apply w-full justify-center
 }
