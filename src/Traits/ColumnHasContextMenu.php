@@ -5,7 +5,6 @@ namespace AymanAlhattami\FilamentContextMenu\Traits;
 use Closure;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
-use Filament\Support\Components\Contracts\HasEmbeddedView;
 
 trait ColumnHasContextMenu
 {
@@ -30,7 +29,7 @@ trait ColumnHasContextMenu
         );
 
         return array_map(
-            fn (Action|ActionGroup $action) => match (true) {
+            fn (Action | ActionGroup $action) => match (true) {
                 $action instanceof Action => $action->defaultView(ActionGroup::GROUPED_VIEW),
                 $action instanceof ActionGroup => $action->defaultTriggerView(ActionGroup::GROUPED_VIEW),
             },
@@ -47,7 +46,7 @@ trait ColumnHasContextMenu
 
     public function getContextMenuActionGroup(): ?ActionGroup
     {
-        $actions = array_filter($this->getContextMenuActions(), fn($action) => $action instanceof Action);
+        $actions = array_filter($this->getContextMenuActions(), fn ($action) => $action instanceof Action);
 
         if (empty($actions)) {
             return null;

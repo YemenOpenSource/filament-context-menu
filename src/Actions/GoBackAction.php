@@ -6,17 +6,11 @@ use Filament\Actions\Action;
 
 class GoBackAction extends Action
 {
-    /**
-     * @return string|null
-     */
     public static function getDefaultName(): ?string
     {
         return 'go back';
     }
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
