@@ -15,14 +15,10 @@ class GoForwardAction extends Action
     {
         parent::setUp();
 
-        $this->label('Go forward')
-            ->translateLabel()
-            ->color('gray')
-            ->icon('heroicon-o-arrow-right')
-            ->link()
-            ->extraAttributes([
-                'x-data' => '',
-                'x-on:click' => 'window.history.forward()',
-            ]);
+        $this->label('Go Forward');
+
+        $this->icon('heroicon-o-arrow-right');
+
+        $this->view('filament-context-menu::components.actions.go-forward');
     }
 }
