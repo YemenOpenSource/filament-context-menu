@@ -2,6 +2,25 @@
 
 All notable changes to `filament-context-menu` will be documented in this file.
 
+## 2.0.0 - 2026-01-23
+
+### What's Changed
+
+* chore(deps): bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/13
+* chore(deps): bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/14
+* chore(deps): bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/15
+* chore(deps): bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/18
+* chore(deps): bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/24
+* chore(deps): bump stefanzweifel/git-auto-commit-action from 5 to 7 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/20
+* chore(deps): bump actions/checkout from 4 to 6 by @dependabot[bot] in https://github.com/aymanalhattami/filament-context-menu/pull/22
+* Support FilamentPHP V4 by @codearachnid in https://github.com/aymanalhattami/filament-context-menu/pull/23
+
+### New Contributors
+
+* @codearachnid made their first contribution in https://github.com/aymanalhattami/filament-context-menu/pull/23
+
+**Full Changelog**: https://github.com/aymanalhattami/filament-context-menu/compare/1.0.3...2.0.0
+
 ## 1.0.3 - 2024-09-22
 
 ### What's Changed
